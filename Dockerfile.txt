@@ -1,0 +1,26 @@
+# Use PHP with Apache + Python base
+FROM php:8.1-apache
+
+# Enable mod_rewrite for .htaccess
+RUN a2enmod rewrite
+
+# Install Python & libraries
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip tesseract-ocr libgl1 \
+    && pip3 install --upgrade pip
+
+# Install Python requirements
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy project files
+COPY . /var/www/html/
+
+# Permissions for users.json
+RUN chmod 666 /var/www/html/users.json
+
+# Expose default port
+EXPOSE 80
