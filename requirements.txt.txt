@@ -1,8 +1,0 @@
-python-trading_signal01==13.15
-pytesseract
-Pillow
-yfinance
-pandas
-scikit-learn
-ta
-numpy
