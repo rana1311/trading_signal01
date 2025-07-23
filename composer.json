@@ -1,0 +1,5 @@
+{
+  "name": "trading_signal01",
+  "description": "Simple Telegram bot in PHP",
+  "require": {}
+}
